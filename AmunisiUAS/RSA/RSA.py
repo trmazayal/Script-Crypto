@@ -1,59 +1,59 @@
 def main():
-    # p = 17
-    # q = 11
-    # e = 7
-    
-    
-    # ku,kr = key_setup(p,q,e)
-    
-    # M = [88] # Note: 88<187
-    
-    # # Encrytion
-    # C = encrypt(M,ku)
-    # print(C)
-    
-    # # Decryption
-    # M = decrypt(C,kr)
-    # print(M)
-    # -------------------------------------
-    
-    p = 53
-    q = 61
-    e = 71
+    p = 5
+    q = 11
+    e = 27
     
     
     ku,kr = key_setup(p,q,e)
     
-    M = 'sance'
+    M = [88] # Note: 88<187
     
-    # Encrypt String
-    C = encrypt_string(M,ku)
+    # Encrytion
+    C = encrypt(M,ku)
     print(C)
     
-    print('-'*50)
+    # Decryption
+    M = decrypt(C,kr)
+    print(M)
+    # -------------------------------------
+    
+    # p = 53
+    # q = 61
+    # e = 71
+    
+    
+    # ku,kr = key_setup(p,q,e)
+    
+    # M = 'sance'
+    
+    # Encrypt String
+    # C = encrypt_string(M,ku)
+    # print(C)
+    
+    # print('-'*50)
     
     # Decrypt String
     # C = [ '3106', '0100']
-    M = decrypt_string(C,kr)
-    print(M)
+    # M = decrypt_string(C,kr)
+    # print(M)
     
     # -------------------------------------
     
     # Brad mendapat pesan dari Angelina, yaitu 20. Dekripsikan pesan itu.
-    # cipher = [20]
-    # ret = decrypt(cipher, kr)
-    # print(f'pesan dari Angelina Untuk Brad = {ret}')
+    cipher = [20]
+    ret = decrypt(cipher, kr)
+    print(f'pesan dari Angelina Untuk Brad = {ret}')
     
     # Brad mau membuat tandatangan digital untuk pesan 15 sehingga orang lain (termasuk Angelina) 
     # dapat yakin bahwa pesan itu berasal dari Brad. Buat tandatangan digital itu (tanpa fungsi hash).
-    # M = [15]
-    # cipher = encrypt(M, ku)
-    # print(f'tandatangan digital punya Brad = {cipher}')
+    M = [15]
+    cipher = encrypt(M, kr)
+    print(f'tandatangan digital punya Brad = {cipher}')
     
     # Apa yang harus dilakukan oleh orang lain (misalnya Angelina) untuk memverifikasi tandatangan 
     # digital Brad tersebut?
-    # ret = decrypt(cipher, kr)
-    # print(f'Verif pesan dari Brad = {ret}')
+    ret = decrypt(cipher, kr)
+    print(f'Verif pesan dari Brad = {ret}')
     
     # Keamanan RSA berdasarkan kesulitan dalam pemecahan problem apa?
     # Keamanan RSA berdasarkan kesulitan dalam pemecahan problem faktorisasi bilangan bulat yang besar.
