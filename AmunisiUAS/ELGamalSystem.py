@@ -1,13 +1,13 @@
 def main():
     # Parameter umum (berlaku untuk semua user)
     # sebuah bilangan prima random p dan sebuah akar primitif a dari p.
-    p = 19
+    p = 11
     a = 2
     # Pembuatan kunci
     # Untuk membuat kuncinya, user A melakukan langkah-langkah:
     # 1. pilih kunci privat x berupa sebuah bilangan random yang lebih kecil dari p;
     # 2. hitung kunci publik y := a^x (mod p).
-    x = 17
+    x = 11
     # Enkripsi
     # Untuk mengirim plaintext rahasia m < p kepada user A, pengirim B memilih sebuah bilangan 
     # random k < p dan membuat ciphertext berupa pasangan (c1,c2) sebagai berikut:
@@ -41,7 +41,7 @@ def egcd(a, b):
 
 
 def gen_key(q,x):
-    public_key_y = pow(a, x) % p
+    public_key_y = pow(q, x) % x
     return public_key_y
 
 
@@ -54,7 +54,7 @@ def encryption(m,a,y,k,p):
 
 
 def decryption(c1, c2,x):
-    m = (modinv(pow(c1, x), p) * c2) % p
+    m = (modinv(pow(c1, x), x) * c2) % x
     return m
 
 
