@@ -99,11 +99,35 @@ def modinv(a, m):
         return x % m
     
 def egcd(a, b):
-    if a == 0:
-        return (b, 0, 1)
+    # if a == 0:
+    #     return (b, 0, 1)
+    # else:
+    #     g, y, x = egcd(b % a, a)
+    # return (g, x - (b // a) * y, y)
+    print("q\tr\tx\ty\ta\tb\tx2\tx1\ty2\ty1")
+    x2, x1, y2, y1 = 1, 0, 0, 1
+    if b == 0:
+        d, x, y = a, 1, 0
+        return d, x, y
     else:
-        g, y, x = egcd(b % a, a)
-    return (g, x - (b // a) * y, y)
+        q, r, x, y = '-', '-', '-', '-'
+        print(q, r, x, y, a, b, x2, x1, y2, y1, sep = "\t")
+        while b > 0:
+            q = a // b
+            r = a -q*b
+            x = x2 - q*x1
+            y = y2 - q*y1
+            a = b
+            b = r
+            x2 = x1
+            x1 = x
+            y2 = y1
+            y1 = y
+            print(q, r, x, y, a, b, x2, x1, y2, y1, sep = "\t")
+        d = a
+        x = x2
+        y = y2
+        return d, x, y
 
 #  create encryption and decryption
 def encrypt(M,ku):
